@@ -1,0 +1,35 @@
+<resources>
+    <!-- VIEWER NOTE - PASE API KEY BELOW-->
+    <string name="url_APIKEY" translatable="false"></string>
+
+
+    <string name="app_name">Wonderbeef Movies</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- MovieDetailFragment -->
+    <string name="key_args_movieItem" translatable="false">movie_item</string>
+    <string name="label_ReleaseDate">Release Date</string>
+    <string name="label_AverageRating">Average Rating</string>
+
+    <!-- Global Constants-->
+    <string name="key_prefs_sortby" translatable="false">MDB_SORTBY</string>
+    <string name="default_prefs_sortby" translatable="false">popularity.desc</string>
+    <string name="key_args_sortBy" translatable="false">SORTBY</string>
+    <string name="api_posterPath" translatable="false">poster_path</string>
+    <string name="url_posterpath" translatable="false">http://image.tmdb.org/t/p/</string>
+    <string name="url_poster_size_185" translatable="false">w185/</string>
+
+        <!-- Project only asks for most popular and highest rated,
+        so leave out the other 3 million options-->
+    <string-array name="values_sortby" translatable="false">
+        <item>popularity.desc</item>
+        <item>vote_average.desc</item>
+    </string-array>
+
+    <string-array name="labels_sortby">
+        <item>Most Popular</item>
+        <item>Highest Rated</item>
+    </string-array>
+    <string name="title_activity_movie_detail">Details</string>
+
+</resources>
