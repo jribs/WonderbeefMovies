@@ -1,5 +1,5 @@
 <resources>
-    <!-- VIEWER NOTE - PASE API KEY BELOW-->
+    <!-- VIEWER NOTE - PASTE API KEY BELOW-->
     <string name="url_APIKEY" translatable="false"></string>
 
 

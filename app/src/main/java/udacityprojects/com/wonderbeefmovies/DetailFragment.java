@@ -145,7 +145,7 @@ public class DetailFragment extends Fragment{
     private String formatUSDate(String date){
         String formattedDate="";
         SimpleDateFormat fromMDB = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat toUSstandard = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat toUSstandard = new SimpleDateFormat("MM/dd/yyyy");
 
 
         try {
