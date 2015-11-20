@@ -23,11 +23,16 @@ public class MainActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        //If we have a savedInstanceState, leave the fragment as it was.
+        if(savedInstanceState!=null){
+            return;
+        } else {
+
             //Attach fragment to framelayout
             GridFragment gridFragment = new GridFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.main_fragContainer, gridFragment).addToBackStack("details").commit();
-
+        }
 
     }
 

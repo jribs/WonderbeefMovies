@@ -69,6 +69,7 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
             //Glorious Picasso is binding our image to the ImageView
             Picasso.with(mContext)
                     .load(imageURL)
+                    .error(android.R.drawable.stat_notify_error)
                     .into(holder.poster);
 
             //here we are setting the onClickListener to broadcast our movie o

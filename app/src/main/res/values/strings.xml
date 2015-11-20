@@ -1,6 +1,8 @@
 <resources>
     <!-- VIEWER NOTE - PASTE API KEY BELOW-->
-    <string name="url_APIKEY" translatable="false"></string>
+    <string name="url_APIKEY" translatable="false">
+        
+</string>
 
 
     <string name="app_name">Wonderbeef Movies</string>

@@ -49,11 +49,6 @@ public class DetailFragment extends Fragment{
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        //For reasons I don't understand, the line of code below is how to access the toolbar
-        //belonging to the parent Activity
-        vBar=((AppCompatActivity) getActivity()).getSupportActionBar();
-        vBar.setDisplayHomeAsUpEnabled(true);
-        vBar.setDisplayShowCustomEnabled(false);
 
         //Setting our JSONObject = our passed string before UI is displayed
         String jsonMovie = getArguments().getString(getString(R.string.key_args_movieItem));
@@ -76,6 +71,14 @@ public class DetailFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        //Moved vBar instantiation to onCreateView to move up on timeline
+        //Adding null pointer to counter errors
+        vBar=((AppCompatActivity) getActivity()).getSupportActionBar();
+        if(vBar!=null){
+        vBar.setDisplayHomeAsUpEnabled(true);
+        vBar.setDisplayShowCustomEnabled(false);}
+
         View v = inflater.inflate(R.layout.fragment_movie_detail, container, false);
             //Instantiate all of our views
 
@@ -116,8 +119,12 @@ public class DetailFragment extends Fragment{
                     getString(R.string.url_poster_size_185)+
                     movie.get(getString(R.string.api_posterPath));
 
+            //NullBar part two
+            if(vBar!=null){
             vBar.setDisplayShowTitleEnabled(true);
             vBar.setTitle(movie.getString(MDB_TITLE));
+            }
+
             vRating.setText(movie.getString(MDB_RATING));
 
             vReleaseDate.setText(formatUSDate(movie.getString(MDB_RELEASEDATE)));
@@ -131,8 +138,10 @@ public class DetailFragment extends Fragment{
             }
 
             //Load the image using Picasso
+            //Added error notation to handle bad urls/images
             Picasso.with(getActivity())
                     .load(imageURL)
+                    .error(android.R.drawable.stat_notify_error)
                     .into(vPoster);
 
         } catch (JSONException e){
